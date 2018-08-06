@@ -1,6 +1,16 @@
 config:
   backup: true
+  banner: true
   create: true
   dotpath: dotfiles
+  keepdot: false
+  link_by_default: false
+  longkey: false
 dotfiles:
+  f_zshrc:
+    dst: ~/.zshrc
+    src: zshrc
 profiles:
+  daedalus:
+    dotfiles:
+    - f_zshrc

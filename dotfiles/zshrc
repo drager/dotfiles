@@ -1,0 +1,79 @@
+TERM=xterm
+
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=100000
+SAVEHIST=$HISTSIZE
+
+alias vim=nvim
+
+# Remove older duplicate entries from history.
+setopt hist_ignore_all_dups
+# Remove superfluous blanks from history items.
+setopt hist_reduce_blanks
+# Save history entries as soon as they are entered.
+setopt inc_append_history
+# Share history between different instances of the shell.
+setopt share_history
+
+setopt auto_cd
+setopt correct_all
+
+# Automatically list choices on ambiguous completion.
+setopt auto_list 
+# Automatically use menu completion.
+setopt auto_menu
+# Move cursor to end if word had one match.
+setopt always_to_end
+
+zstyle ':completion:*' menu select # select completions with arrow keys
+zstyle ':completion:*' group-name '' # group results by category
+zstyle ':completion:::::' completer _expand _complete _ignored _approximate # enable approximate matches for completion
+
+fpath=(~/.zsh/completion $fpath)
+
+# Exports
+source ~/.exports
+
+# Call screenfetch
+screenfetch
+
+autoload -Uz compinit
+
+typeset -i updated_at=$(date +'%j' -r ~/.zcompdump 2>/dev/null || stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)
+if [ $(date +'%j') != $updated_at ]; then
+  compinit -i
+else
+  compinit -C -i
+fi
+
+zmodload -i zsh/complist
+
+# Load antibody plugins.
+source ~/.zsh_plugins.sh
+
+SPACESHIP_PROMPT_ORDER=(
+  user          # Username section
+  dir           # Current directory section
+  host          # Hostname section
+  git           # Git section (git_branch + git_status)
+  hg            # Mercurial section (hg_branch  + hg_status)
+  exec_time     # Execution time
+  line_sep      # Line break
+  vi_mode       # Vi-mode indicator
+  jobs          # Background jobs indicator
+  exit_code     # Exit code section
+  char          # Prompt character
+)
+
+SPACESHIP_PROMPT_ADD_NEWLINE=false
+SPACESHIP_CHAR_SYMBOL="❯"
+SPACESHIP_CHAR_SUFFIX=" "
+
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+eval "$(pyenv virtualenv-init -)"
+eval "$(pyenv virtualenv-init -)"
