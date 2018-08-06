@@ -7,6 +7,9 @@ config:
   link_by_default: false
   longkey: false
 dotfiles:
+  f_exports:
+    dst: ~/.exports
+    src: exports
   f_zshrc:
     dst: ~/.zshrc
     src: zshrc
@@ -14,3 +17,4 @@ profiles:
   daedalus:
     dotfiles:
     - f_zshrc
+    - f_exports
