@@ -1,0 +1,58 @@
+// Place your settings in this file to overwrite the default settings
+{
+    // "triggerTaskOnSave.tasks": {
+    //     "prettier": [
+    //         "**/*.ts(x)"
+    //     ]
+    // },
+    // "typescript.tsdk": "node_modules/typescript/lib",
+    // Controls auto save of dirty files. Accepted values:  "off", "afterDelay", "onFocusChange" (editor loses focus), "onWindowChange" (window loses focus). If set to "afterDelay", you can configure the delay in "files.autoSaveDelay".
+    "files.autoSave": "onFocusChange",
+    "editor.formatOnSave": true,
+    "git.confirmSync": false,
+    "window.zoomLevel": 0,
+    // Prettier
+    "prettier.bracketSpacing": false,
+    "prettier.tabWidth": 2,
+    "prettier.singleQuote": true,
+    "prettier.useTabs": false,
+    "prettier.trailingComma": "all",
+    "prettier.semi": false,
+    // TypeScript Importer configuration
+    // Insert spaces between the import braces. ( import {test} from 'test' vs. import { test } from 'test' )
+    "tsimporter.spaceBetweenBraces": false,
+    "tslint.autoFixOnSave": true,
+    // If false, no semicolon will be written
+    "tsimporter.emitSemicolon": false,
+    "editor.renderIndentGuides": true,
+    "editor.rulers": [
+        100,
+        120
+    ],
+    "files.insertFinalNewline": true,
+    // Configure glob patterns for excluding files and folders in searches. Inherits all glob patterns from the files.exclude setting.
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/dist": true
+    },
+    "dart.debugSdkLibraries": false,
+    "dart.debugExternalLibraries": false,
+    "editor.wordWrap": "on",
+    "rust.formatOnSave": true, // Turn on/off autoformatting file on save (EXPERIMENTAL)
+    "rust.checkOnSave": true, // Turn on/off `cargo check` project on save (EXPERIMENTAL)
+    "rust.checkWith": "build", // Specifies the linter to use. (EXPERIMENTAL)
+    "rust.useJsonErrors": false, // Enable the use of JSON errors (requires Rust 1.7+). Note: This is an unstable feature of Rust and is still in the process of being stablised
+    "rust.useNewErrorFormat": false,
+    "rust-client.channel": "nightly",
+    // "rust.target": "rls",
+    // "rust.target_dir": "target/rls",
+    "extensions.ignoreRecommendations": false,
+    "workbench.editor.showIcons": true,
+    "workbench.quickOpen.closeOnFocusLost": false,
+    // "workbench.editor.enablePreview": false,
+    "workbench.panel.location": "right",
+    "git.autofetch": true,
+    "explorer.confirmDragAndDrop": false,
+    "workbench.colorTheme": "Gruvbox Dark (Hard)" // "Use the new Rust error format (RUST_NEW_ERROR_FORMAT=true). Note: This flag is mutually exclusive with `useJsonErrors`.
+}

@@ -10,6 +10,12 @@ dotfiles:
   f_exports:
     dst: ~/.exports
     src: exports
+  f_keybindings.json:
+    dst: ~/.config/Code/User/keybindings.json
+    src: config/Code/User/keybindings.json
+  f_settings.json:
+    dst: ~/.config/Code/User/settings.json
+    src: config/Code/User/settings.json
   f_zshrc:
     dst: ~/.zshrc
     src: zshrc
@@ -18,3 +24,5 @@ profiles:
     dotfiles:
     - f_zshrc
     - f_exports
+    - f_keybindings.json
+    - f_settings.json
