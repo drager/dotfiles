@@ -10,6 +10,9 @@ dotfiles:
   f_exports:
     dst: ~/.exports
     src: exports
+  f_init.vim:
+    dst: ~/.config/nvim/init.vim
+    src: config/nvim/init.vim
   f_keybindings.json:
     dst: ~/.config/Code/User/keybindings.json
     src: config/Code/User/keybindings.json
@@ -26,3 +29,4 @@ profiles:
     - f_exports
     - f_keybindings.json
     - f_settings.json
+    - f_init.vim
