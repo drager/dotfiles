@@ -19,6 +19,9 @@ dotfiles:
   f_settings.json:
     dst: ~/.config/Code/User/settings.json
     src: config/Code/User/settings.json
+  f_zsh_plugins.txt:
+    dst: ~/.zsh_plugins.txt
+    src: zsh_plugins.txt
   f_zshrc:
     dst: ~/.zshrc
     src: zshrc
@@ -30,3 +33,4 @@ profiles:
     - f_keybindings.json
     - f_settings.json
     - f_init.vim
+    - f_zsh_plugins.txt
