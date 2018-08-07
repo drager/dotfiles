@@ -25,6 +25,18 @@ dotfiles:
   f_settings.json:
     dst: ~/.config/Code/User/settings.json
     src: config/Code/User/settings.json
+  f_tags.patch:
+    dst: ~/aur/packages/dwm/src/tags.patch
+    src: aur/packages/dwm/src/tags.patch
+  f_terminal.patch:
+    dst: ~/aur/packages/dwm/src/terminal.patch
+    src: aur/packages/dwm/src/terminal.patch
+  f_theme.patch:
+    dst: ~/aur/packages/dwm/src/theme.patch
+    src: aur/packages/dwm/src/theme.patch
+  f_volume.patch:
+    dst: ~/aur/packages/dwm/src/volume.patch
+    src: aur/packages/dwm/src/volume.patch
   f_zsh_plugins.txt:
     dst: ~/.zsh_plugins.txt
     src: zsh_plugins.txt
@@ -42,3 +54,7 @@ profiles:
     - f_zsh_plugins.txt
     - f_config
     - f_kitty.conf
+    - f_tags.patch
+    - f_terminal.patch
+    - f_theme.patch
+    - f_volume.patch

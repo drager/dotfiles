@@ -1,0 +1,17 @@
+diff -ura --color dwm-6.1/config.h dwm-6.1.new/config.h
+--- dwm-6.1/config.h	2018-08-08 01:22:17.541797238 +0200
++++ dwm-6.1.new/config.h	2018-08-08 01:23:12.368250081 +0200
+@@ -55,7 +55,7 @@
+ /* commands */
+ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
+ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
+-static const char *termcmd[]  = { "st", NULL };
++static const char *termcmd[]  = { "kitty", NULL };
+ 
+ static Key keys[] = {
+ 	/* modifier                     key        function        argument */
+Only in dwm-6.1: drw.o
+Only in dwm-6.1: dwm
+Only in dwm-6.1: dwm.o
+Only in dwm-6.1.new: terminal.patch
+Only in dwm-6.1: util.o
