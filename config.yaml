@@ -19,6 +19,9 @@ dotfiles:
   f_keybindings.json:
     dst: ~/.config/Code/User/keybindings.json
     src: config/Code/User/keybindings.json
+  f_kitty.conf:
+    dst: ~/.config/kitty/kitty.conf
+    src: config/kitty/kitty.conf
   f_settings.json:
     dst: ~/.config/Code/User/settings.json
     src: config/Code/User/settings.json
@@ -38,3 +41,4 @@ profiles:
     - f_init.vim
     - f_zsh_plugins.txt
     - f_config
+    - f_kitty.conf
