@@ -7,6 +7,9 @@ config:
   link_by_default: false
   longkey: false
 dotfiles:
+  f_config:
+    dst: ~/.config/termite/config
+    src: config/termite/config
   f_exports:
     dst: ~/.exports
     src: exports
@@ -34,3 +37,4 @@ profiles:
     - f_settings.json
     - f_init.vim
     - f_zsh_plugins.txt
+    - f_config
