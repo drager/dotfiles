@@ -6,13 +6,7 @@ Plug 'prettier/vim-prettier', {
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql']
   \ }
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
-Plug 'neomake/neomake', { 'for': ['rust', 'haskell', 'typescript'] }
 Plug 'plasticboy/vim-markdown'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-
 Plug 'mhartington/nvim-typescript'
 
 " (Optional) Multi-entry selection UI.
@@ -34,21 +28,29 @@ if executable('rustc')
 endif
 
 Plug 'morhetz/gruvbox'
-Plug 'airblade/vim-gitgutter'
+"Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdcommenter'
+
+Plug 'sakhnik/nvim-gdb'
+Plug 'neomake/neomake', { 'for': ['rust', 'haskell', 'typescript'] }
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 
 call plug#end()
 
-" appearance
+" Appearance
 syntax on
 set background=dark
 colorscheme gruvbox
-" set termguicolors
-"set ttyfast
-"set t_ut=
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
+" Check file change every 4 seconds ('CursorHold') and reload the buffer upon detecting change
+set autoread
+au CursorHold * checktime
 
 " Required for operations modifying multiple buffers like rename.
 set hidden
@@ -57,6 +59,8 @@ set number
 set clipboard+=unnamedplus
 
 let g:rustfmt_autosave = 1
+
+" LanguageClient
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
@@ -72,11 +76,11 @@ nnoremap <Leader>d :call LanguageClient#textDocument_definition()<CR>
 nnoremap <Leader>f :call LanguageClient#textDocument_formatting()<CR>
 nnoremap <Leader>H :call LanguageClient#textDocument_hover()<CR>
 
+" NERDTree
 let NERDTreeShowHidden = 1
-
-" autocmd vimenter * NERDTree
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
+nmap <silent> <C-t> :NERDTreeToggle<CR>
 
 
 " Prettier
