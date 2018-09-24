@@ -6,6 +6,7 @@ config:
   keepdot: false
   link_by_default: false
   longkey: false
+  workdir: ~/.config/dotdrop
 dotfiles:
   f_config:
     dst: ~/.config/termite/config
@@ -16,6 +17,9 @@ dotfiles:
   f_init.vim:
     dst: ~/.config/nvim/init.vim
     src: config/nvim/init.vim
+  f_init_scrollback_pager.vim:
+    dst: ~/.config/nvim/init_scrollback_pager.vim
+    src: config/nvim/init_scrollback_pager.vim
   f_keybindings.json:
     dst: ~/.config/Code/User/keybindings.json
     src: config/Code/User/keybindings.json
@@ -44,6 +48,16 @@ dotfiles:
     dst: ~/.zshrc
     src: zshrc
 profiles:
+  Icarus:
+    dotfiles:
+    - f_kitty.conf
+    - f_init_scrollback_pager.vim
+    - f_init.vim
+    - f_exports
+    - f_zsh_plugins.txt
+    - f_zshrc
+    - f_keybindings.json
+    - f_settings.json
   daedalus:
     dotfiles:
     - f_zshrc
