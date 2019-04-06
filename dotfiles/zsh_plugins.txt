@@ -3,4 +3,6 @@ zsh-users/zsh-autosuggestions
 zsh-users/zsh-history-substring-search
 zsh-users/zsh-completions
 buonomo/yarn-completion
-denysdovhan/spaceship-prompt
+#denysdovhan/spaceship-prompt
+#mgee/slimline
+geometry-zsh/geometry
