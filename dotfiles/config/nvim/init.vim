@@ -1,13 +1,14 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'scrooloose/nerdtree'
+Plug 'w0rp/ale'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql']
   \ }
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'plasticboy/vim-markdown'
-Plug 'mhartington/nvim-typescript'
+"Plug 'mhartington/nvim-typescript'
 
 " (Optional) Multi-entry selection UI.
 Plug 'junegunn/fzf'
@@ -31,7 +32,7 @@ Plug 'morhetz/gruvbox'
 "Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdcommenter'
-
+Plug 'jlanzarotta/bufexplorer'
 Plug 'sakhnik/nvim-gdb'
 Plug 'neomake/neomake', { 'for': ['rust', 'haskell', 'typescript'] }
 Plug 'autozimu/LanguageClient-neovim', {
@@ -48,6 +49,7 @@ colorscheme gruvbox
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
+set expandtab
 " Check file change every 4 seconds ('CursorHold') and reload the buffer upon detecting change
 set autoread
 au CursorHold * checktime
@@ -75,6 +77,7 @@ nnoremap <Leader>r :call LanguageClient#textDocument_rename()<CR>
 nnoremap <Leader>d :call LanguageClient#textDocument_definition()<CR>
 nnoremap <Leader>f :call LanguageClient#textDocument_formatting()<CR>
 nnoremap <Leader>H :call LanguageClient#textDocument_hover()<CR>
+nnoremap <C-L> :buffers<CR>:buffer<Space>
 
 " NERDTree
 let NERDTreeShowHidden = 1
@@ -88,3 +91,9 @@ let g:prettier#autoformat = 1
 let g:prettier#config#single_quote = 'true'
 let g:prettier#config#bracket_spacing = 'false'
 let g:prettier#config#semi = 'false'
+
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+\   'javascript': ['prettier', 'eslint'],
+\   'typescript': ['prettier', 'tslint'],
+\}
