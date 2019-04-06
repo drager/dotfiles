@@ -14,6 +14,9 @@ dotfiles:
   f_exports:
     dst: ~/.exports
     src: exports
+  f_gitconfig:
+    dst: ~/.gitconfig
+    src: gitconfig
   f_init.vim:
     dst: ~/.config/nvim/init.vim
     src: config/nvim/init.vim
@@ -58,6 +61,7 @@ profiles:
     - f_zshrc
     - f_keybindings.json
     - f_settings.json
+    - f_gitconfig
   daedalus:
     dotfiles:
     - f_zshrc

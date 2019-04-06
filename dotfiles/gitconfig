@@ -1,0 +1,10 @@
+[user]
+	email = jesper@jesperh.se
+	name = Jesper Håkansson
+[alias]
+	tree = log --oneline --decorate --all --graph
+[core]
+	autocrlf = input
+	editor = vim
+[push]
+	default = simple
