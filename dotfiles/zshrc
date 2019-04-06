@@ -1,10 +1,12 @@
-TERM=xterm
-
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=100000
 SAVEHIST=$HISTSIZE
 
 alias vim=nvim
+alias d="kitty +kitten diff"
+alias ls='ls --color=tty'
+
+bindkey -e
 
 # Remove older duplicate entries from history.
 setopt hist_ignore_all_dups
@@ -29,27 +31,33 @@ zstyle ':completion:*' menu select # select completions with arrow keys
 zstyle ':completion:*' group-name '' # group results by category
 zstyle ':completion:::::' completer _expand _complete _ignored _approximate # enable approximate matches for completion
 
-fpath=(~/.zsh/completion $fpath)
-
 # Exports
 source ~/.exports
 
 # Call neofetch
-neofetch
+#neofetch
+
+fpath=(~/.zsh/completions $fpath)
+
+fpath+=~/.zfunc
 
 autoload -Uz compinit
 
 typeset -i updated_at=$(date +'%j' -r ~/.zcompdump 2>/dev/null || stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)
 if [ $(date +'%j') != $updated_at ]; then
-  compinit -i
+	compinit -i
 else
-  compinit -C -i
+	compinit -C -i
 fi
 
 zmodload -i zsh/complist
 
 # Load antibody plugins.
 source ~/.zsh_plugins.sh
+
+# Geometry
+source ~/geometry-plugins/npm_package_version.zsh
+source ~/geometry-plugins/rust_version.zsh
 
 SPACESHIP_PROMPT_ADD_NEWLINE=false
 SPACESHIP_CHAR_SYMBOL="λ"
@@ -64,4 +72,8 @@ fi
 eval "$(pyenv virtualenv-init -)"
 eval "$(pyenv virtualenv-init -)"
 
-eval $(keychain --eval --quiet id_rsa_do)
+
+#{%@@ if profile == "daedalus" @@%}
+#eval $(keychain --eval --quiet id_rsa_do)
+#{%@@ endif @@%}
+
