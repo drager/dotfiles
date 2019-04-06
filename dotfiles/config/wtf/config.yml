@@ -1,0 +1,75 @@
+wtf:
+  colors:
+    border:
+      focusable: darkslateblue
+      focused: orange
+      normal: gray
+  grid:
+    columns: [45, 45]
+    rows: [12, 9, 8, 4]
+  refreshInterval: 1
+  mods:
+    clocks:
+      colors:
+        rows:
+          even: "red"
+          odd: "white"
+      enabled: true
+      locations:
+        Sweden: "Europe/Stockholm"
+        New York: "America/New_York"
+        UTC: "UTC"
+      position:
+        top: 0
+        left: 0
+        height: 1
+        width: 1
+      refreshInterval: 15
+      sort: "chronological"
+    power:
+      enabled: true
+      position:
+        top: 1
+        left: 0
+        height: 1
+        width: 1
+        refreshInterval: 15
+    security:
+      enabled: true
+      position:
+        top: 1
+        left: 1
+        height: 1
+        width: 1
+      refreshInterval: 3600
+    prettyweather:
+      enabled: true
+      position:
+        top: 0
+        left: 1
+        height: 1
+        width: 1
+    system:
+      enabled: true
+      position:
+        top: 2
+        left: 0
+        height: 1
+        width: 1
+      refreshInterval: 3600
+    resourceusage:
+      enabled: true
+      position:
+        top: 2
+        left: 1
+        height: 1
+        width: 1
+      refreshInterval: 1
+    status:
+      enabled: true
+      position:
+        top: 3
+        left: 0
+        height: 1
+        width: 2
+      refreshInterval: 1
