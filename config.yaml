@@ -8,6 +8,9 @@ config:
   longkey: false
   workdir: ~/.config/dotdrop
 dotfiles:
+  d_geometry-plugins:
+    dst: ~/geometry-plugins
+    src: geometry-plugins
   f_config:
     dst: ~/.config/termite/config
     src: config/termite/config
@@ -62,6 +65,7 @@ profiles:
     - f_keybindings.json
     - f_settings.json
     - f_gitconfig
+    - d_geometry-plugins
   daedalus:
     dotfiles:
     - f_zshrc
