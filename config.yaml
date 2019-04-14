@@ -41,6 +41,9 @@ dotfiles:
   f_kitty.conf:
     dst: ~/.config/kitty/kitty.conf
     src: config/kitty/kitty.conf
+  f_packages.nix:
+    dst: /etc/nixos/packages.nix
+    src: etc/nixos/packages.nix
   f_settings.json:
     dst: ~/.config/Code/User/settings.json
     src: config/Code/User/settings.json
@@ -97,3 +100,4 @@ profiles:
     dotfiles:
     - f_configuration.nix
     - f_xserver.nix
+    - f_packages.nix
