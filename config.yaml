@@ -56,6 +56,9 @@ dotfiles:
   f_volume.patch:
     dst: ~/aur/packages/dwm/src/volume.patch
     src: aur/packages/dwm/src/volume.patch
+  f_xserver.nix:
+    dst: /etc/nixos/xserver.nix
+    src: etc/nixos/xserver.nix
   f_zsh_plugins.txt:
     dst: ~/.zsh_plugins.txt
     src: zsh_plugins.txt
@@ -93,3 +96,4 @@ profiles:
   icarus:
     dotfiles:
     - f_configuration.nix
+    - f_xserver.nix
