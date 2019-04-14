@@ -3,9 +3,12 @@ config:
   banner: true
   create: true
   dotpath: dotfiles
+  ignoreempty: false
   keepdot: false
-  link_by_default: false
+  link_dotfile_default: nolink
+  link_on_import: nolink
   longkey: false
+  showdiff: false
   workdir: ~/.config/dotdrop
 dotfiles:
   d_geometry-plugins:
@@ -17,6 +20,9 @@ dotfiles:
   f_config.yml:
     dst: ~/.config/wtf/config.yml
     src: config/wtf/config.yml
+  f_configuration.nix:
+    dst: /etc/nixos/configuration.nix
+    src: etc/nixos/configuration.nix
   f_exports:
     dst: ~/.exports
     src: exports
@@ -84,3 +90,6 @@ profiles:
     - f_terminal.patch
     - f_theme.patch
     - f_volume.patch
+  icarus:
+    dotfiles:
+    - f_configuration.nix
