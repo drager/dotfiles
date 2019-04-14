@@ -23,6 +23,9 @@ dotfiles:
   f_configuration.nix:
     dst: /etc/nixos/configuration.nix
     src: etc/nixos/configuration.nix
+  f_direnv.nix:
+    dst: /etc/nixos/direnv.nix
+    src: etc/nixos/direnv.nix
   f_exports:
     dst: ~/.exports
     src: exports
@@ -101,3 +104,4 @@ profiles:
     - f_configuration.nix
     - f_xserver.nix
     - f_packages.nix
+    - f_direnv.nix
