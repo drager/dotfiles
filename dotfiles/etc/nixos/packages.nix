@@ -15,7 +15,7 @@
       unzip zip ranger keychain
 
       # Themeing, greeter.
-      numix-gtk-theme numix-icon-theme
+      numix-gtk-theme numix-icon-theme blueman lxappearance
       #gtk #gnome.gnomeicontheme
 
       # Languages and programming tools.
@@ -36,7 +36,7 @@
       chromium google-chrome
 
       # Others
-      weechat gimp feh
+      weechat gimp feh slack
     ];
   };
 }

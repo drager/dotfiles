@@ -24,6 +24,19 @@
   #hardware.opengl.extraPackages = [ pkgs.linuxPackages.nvidia_x11.out ];
   #hardware.opengl.extraPackages32 = [ pkgs.linuxPackages.nvidia_x11.lib32 ];
 
+  # Enable sound.
+  sound.enable = true;
+
+  hardware.pulseaudio = {
+    enable = true;
+
+    # NixOS allows either a lightweight build (default) or full build of PulseAudio to be installed.
+    # Only the full build has Bluetooth support, so it must be selected here.
+    package = pkgs.pulseaudioFull;
+  };
+
+  hardware.bluetooth.enable = true;
+
   networking.hostName = "icarus"; # Define your hostname.
   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -66,10 +79,6 @@
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
-
-  # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
