@@ -14,6 +14,9 @@ dotfiles:
   d_geometry-plugins:
     dst: ~/geometry-plugins
     src: geometry-plugins
+  f_android.nix:
+    dst: ~/environments/android.nix
+    src: environments/android.nix
   f_config:
     dst: ~/.config/termite/config
     src: config/termite/config
@@ -44,9 +47,18 @@ dotfiles:
   f_kitty.conf:
     dst: ~/.config/kitty/kitty.conf
     src: config/kitty/kitty.conf
+  f_node.nix:
+    dst: ~/environments/node.nix
+    src: environments/node.nix
   f_packages.nix:
     dst: /etc/nixos/packages.nix
     src: etc/nixos/packages.nix
+  f_python.nix:
+    dst: ~/environments/python.nix
+    src: environments/python.nix
+  f_rust.nix:
+    dst: ~/environments/rust.nix
+    src: environments/rust.nix
   f_settings.json:
     dst: ~/.config/Code/User/settings.json
     src: config/Code/User/settings.json
@@ -105,3 +117,7 @@ profiles:
     - f_xserver.nix
     - f_packages.nix
     - f_direnv.nix
+    - f_android.nix
+    - f_node.nix
+    - f_python.nix
+    - f_rust.nix
