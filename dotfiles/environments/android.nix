@@ -12,7 +12,7 @@ let fhs = pkgs.buildFHSUserEnv {
       openssl
       gnumake
       nettools
-      androidenv.platformTools
+      androidenv.androidPkgs_9_0.platform-tools
       android-studio
       jdk
       schedtool
@@ -27,6 +27,7 @@ let fhs = pkgs.buildFHSUserEnv {
       flex
       lzop
       yarn
+      nodejs-10_x
     ];
   multiPkgs = pkgs: with pkgs;
     [ zlib
@@ -40,6 +41,9 @@ let fhs = pkgs.buildFHSUserEnv {
 in pkgs.stdenv.mkDerivation {
   name = "android-env-shell";
   nativeBuildInputs = [ fhs ];
-  shellHook = "exec android-env";
+  shellHook = ''
+    exec android-env
+  '';
 
 }
+

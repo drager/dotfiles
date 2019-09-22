@@ -8,6 +8,7 @@
       ./xserver.nix
       ./packages.nix
       ./direnv.nix
+      ./custom-versions.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -15,21 +16,45 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.enableCryptodisk = true;
 
+  virtualisation.virtualbox.host.enable = true;
+
+  services.printing.enable = true;
+  services.avahi.enable = true;
+  services.avahi.publish.enable = true;
+  services.avahi.publish.userServices = true;
+  services.avahi.nssmdns = true;
+
+  virtualisation.docker.enable = true;
+
+  services.printing.browsing = true;
+  services.printing.listenAddresses = [ "*:631" ];
+  services.printing.defaultShared = true;
+
+  networking.firewall.allowedUDPPorts = [ 631 ];
+  networking.firewall.allowedTCPPorts = [ 631 ];
+
   nixpkgs.config = {
     allowUnfree = true;
 
     #chromium.enableWideVine = true;
   };
 
+  hardware.nvidia.optimus_prime.enable = true;
+
+
   #hardware.nvidiaOptimus.disable = true;
   #hardware.opengl.extraPackages = [ pkgs.linuxPackages.nvidia_x11.out ];
   #hardware.opengl.extraPackages32 = [ pkgs.linuxPackages.nvidia_x11.lib32 ];
+
+  hardware.opengl.driSupport32Bit = true;
 
   # Enable sound.
   sound.enable = true;
 
   hardware.pulseaudio = {
     enable = true;
+
+    support32Bit = true;
 
     # NixOS allows either a lightweight build (default) or full build of PulseAudio to be installed.
     # Only the full build has Bluetooth support, so it must be selected here.

@@ -16,7 +16,10 @@
    
    #videoDrivers = [ "nvidia" ];
 
-   resolutions = [ { x = 1920; y = 1080; } { x = 1920; y = 1200; } { x = 1920; y = 1200; } ];
+   #videoDrivers = [ "nvidiaLegacy940" ];
+
+   resolutions = [ { x = 1920; y = 1080; } ];
+   #resolutions = [ { x = 1920; y = 1080; } { x = 1920; y = 1200; } { x = 1920; y = 1200; } ];
 
    desktopManager.xterm.enable = false;
 

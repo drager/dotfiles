@@ -26,6 +26,9 @@ dotfiles:
   f_configuration.nix:
     dst: /etc/nixos/configuration.nix
     src: etc/nixos/configuration.nix
+  f_custom-versions.nix:
+    dst: /etc/nixos/custom-versions.nix
+    src: etc/nixos/custom-versions.nix
   f_direnv.nix:
     dst: /etc/nixos/direnv.nix
     src: etc/nixos/direnv.nix
@@ -121,3 +124,4 @@ profiles:
     - f_node.nix
     - f_python.nix
     - f_rust.nix
+    - f_custom-versions.nix
