@@ -2,27 +2,13 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'scrooloose/nerdtree'
 "Plug 'w0rp/ale'
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': [
-    \ 'javascript',
-    \ 'typescript',
-    \ 'css',
-    \ 'less',
-    \ 'scss',
-    \ 'json',
-    \ 'graphql',
-    \ 'markdown',
-    \ 'vue',
-    \ 'lua',
-    \ 'python',
-    \ 'ruby',
-    \ 'html'] }
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 "Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'plasticboy/vim-markdown'
 Plug 'LnL7/vim-nix'
 Plug 'reasonml-editor/vim-reason-plus'
 Plug 'idris-hackers/idris-vim'
+Plug 'jparise/vim-graphql'
 "Plug 'peitalin/vim-jsx-typescript'
 "Plug 'mxw/vim-jsx'
 "Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
@@ -52,7 +38,7 @@ Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdcommenter'
 Plug 'jlanzarotta/bufexplorer'
-
+Plug 'direnv/direnv.vim'
 Plug 'sakhnik/nvim-gdb'
 Plug 'neomake/neomake', { 'for': ['rust', 'haskell', 'typescript'] }
 Plug 'autozimu/LanguageClient-neovim', {
@@ -72,6 +58,8 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set expandtab
+set relativenumber
+set rnu
 " Check file change every 4 seconds ('CursorHold') and reload the buffer upon detecting change
 set autoread
 au CursorHold * checktime
@@ -89,11 +77,11 @@ let g:rustfmt_autosave = 1
 " LanguageClient
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-    \ 'javascript': ['javascript-typescript-stdio'],
-		\ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
-    \ 'typescript': ['javascript-typescript-stdio'],
-		\ 'typescript.tsx': ['tcp://127.0.0.1:2089'],
+    \ 'rust': ['rls'],
+    \ 'javascript': ['node', 'javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['node', 'javascript-typescript-stdio'],
+    \ 'typescript': ['node', 'javascript-typescript-stdio'],
+    \ 'typescript.tsx': ['node', 'javascript-typescript-stdio'],
     \ }
 
 
