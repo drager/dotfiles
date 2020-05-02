@@ -14,9 +14,21 @@ dotfiles:
   d_geometry-plugins:
     dst: ~/geometry-plugins
     src: geometry-plugins
+  f_00-keyboard.conf:
+    dst: ~/00-keyboard.conf
+    src: 00-keyboard.conf
   f_android.nix:
     dst: ~/environments/android.nix
     src: environments/android.nix
+  f_backlight.sh:
+    dst: ~/bin/backlight.sh
+    src: bin/backlight.sh
+  f_battery-check.sh:
+    dst: ~/bin/battery-check.sh
+    src: bin/battery-check.sh
+  f_brightness.sh:
+    dst: ~/bin/brightness.sh
+    src: bin/brightness.sh
   f_config:
     dst: ~/.config/termite/config
     src: config/termite/config
@@ -32,9 +44,15 @@ dotfiles:
   f_direnv.nix:
     dst: /etc/nixos/direnv.nix
     src: etc/nixos/direnv.nix
+  f_dwm-config:
+    dst: ~/dwm-config
+    src: dwm-config
   f_exports:
     dst: ~/.exports
     src: exports
+  f_fonts.conf:
+    dst: ~/fonts.conf
+    src: fonts.conf
   f_gitconfig:
     dst: ~/.gitconfig
     src: gitconfig
@@ -47,6 +65,9 @@ dotfiles:
   f_keybindings.json:
     dst: ~/.config/Code/User/keybindings.json
     src: config/Code/User/keybindings.json
+  f_keyboard-layout.sh:
+    dst: ~/bin/keyboard-layout.sh
+    src: bin/keyboard-layout.sh
   f_kitty.conf:
     dst: ~/.config/kitty/kitty.conf
     src: config/kitty/kitty.conf
@@ -77,6 +98,12 @@ dotfiles:
   f_volume.patch:
     dst: ~/aur/packages/dwm/src/volume.patch
     src: aur/packages/dwm/src/volume.patch
+  f_volume.sh:
+    dst: ~/bin/volume.sh
+    src: bin/volume.sh
+  f_wifi-check.sh:
+    dst: ~/bin/wifi-check.sh
+    src: bin/wifi-check.sh
   f_xserver.nix:
     dst: /etc/nixos/xserver.nix
     src: etc/nixos/xserver.nix
@@ -114,6 +141,15 @@ profiles:
     - f_terminal.patch
     - f_theme.patch
     - f_volume.patch
+    - f_00-keyboard.conf
+    - f_dwm-config
+    - f_fonts.conf
+    - f_backlight.sh
+    - f_battery-check.sh
+    - f_brightness.sh
+    - f_keyboard-layout.sh
+    - f_volume.sh
+    - f_wifi-check.sh
   icarus:
     dotfiles:
     - f_configuration.nix
