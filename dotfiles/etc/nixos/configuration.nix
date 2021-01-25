@@ -39,7 +39,7 @@
     #chromium.enableWideVine = true;
   };
 
-  hardware.nvidia.optimus_prime.enable = true;
+  #hardware.nvidia.prime.sync.enable = true;
 
 
   #hardware.nvidiaOptimus.disable = true;
@@ -78,9 +78,12 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
+  console = {
+    font = "Lat2-Terminus16";
+    keyMap = "us";
+  };
+
   i18n = {
-    consoleFont = "Lat2-Terminus16";
-    consoleKeyMap = "us";
     defaultLocale = "en_US.UTF-8";
   };
 
@@ -110,5 +113,5 @@
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "18.09";
+  system.stateVersion = "20.09";
 }

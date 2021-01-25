@@ -7,21 +7,17 @@
 
    libinput = {
      enable = true;
-     naturalScrolling = true;
+     naturalScrolling = false;
    };
 
    # Keyboard options
    layout = "us, se";
    xkbOptions = "grp:alt_shift_toggle";
    
-   #videoDrivers = [ "nvidia" ];
+   videoDrivers = [ "nvidiaLegacy390M" ];
 
-   #videoDrivers = [ "nvidiaLegacy940" ];
-
-   resolutions = [ { x = 1920; y = 1080; } ];
+   #resolutions = [ { x = 1920; y = 1080; } ];
    #resolutions = [ { x = 1920; y = 1080; } { x = 1920; y = 1200; } { x = 1920; y = 1200; } ];
-
-   desktopManager.xterm.enable = false;
 
    xautolock = {
      enable = true;
@@ -31,39 +27,37 @@
 
    displayManager.lightdm = {
      enable = true;
-     background = "#282828";
-   #  greeters.mini = {
-   #    enable = true;
-   #    user = "drager";
-   #    extraConfig = ''
-   #        [greeter]
-   #        show-password-label = false
-   #
-   #        [greeter-theme]
-   #        background-color = "#282828"
-   #        password-background-color = "#FFFFFF"
-   #    '';
-   #  };
-     greeters.gtk = {
-       enable = true;
-       indicators = [ "~spacer" "~clock" "~power" ];
-       theme.name = "Vertex-Dark";
-       iconTheme.name = "Numix";
-       iconTheme.package = pkgs.numix-icon-theme;
-       theme.package = pkgs.theme-vertex;
-       extraConfig = ''
-            xft-antialias=true
-            hide-user-image=true
-            font-name=DejaVu Sans
-            #font-name=Lat2-Terminus-16
-       '';
-     };
+     #greeters.gtk = {
+     #  enable = true;
+     #  indicators = [ "~spacer" "~clock" "~power" ];
+     #  theme.name = "Vertex-Dark";
+     #  iconTheme.name = "Numix";
+     #  iconTheme.package = pkgs.numix-icon-theme;
+     #  theme.package = pkgs.theme-vertex;
+     #  extraConfig = ''
+     #       xft-antialias=true
+     #       hide-user-image=true
+     #       font-name=DejaVu Sans
+     #       #font-name=Lat2-Terminus-16
+     #  '';
+     #};
   };
+ 
+    #displayManager = {
+    #  defaultSession = "none+leftwm";
+    #};
 
-    windowManager = {
-      default = "awesome";
-      awesome.enable = true;
+
+    #windowManager.leftwm = {
+    #  enable = true;
+    #};
+
+    windowManager.awesome = {
+      enable = true;
     };
+
+    windowManager.twm.enable = true;
+
   };
 
   fonts = {
@@ -71,7 +65,7 @@
    fonts = with pkgs; [
      terminus_font dejavu_fonts terminus_font_ttf
      powerline-fonts roboto
-     nerdfonts font-awesome_5
+     #nerdfonts font-awesome_5
    ];
   };
 }

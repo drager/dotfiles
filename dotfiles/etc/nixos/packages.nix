@@ -3,7 +3,7 @@
 {
   nixpkgs.config.allowUnfreePredicate = pkg:
     pkgs.lib.elem (builtins.parseDrvName pkg.name).name
-    [ "firefox-bin" "vscode" "google-chrome" "skypeforlinux" "mongodb-compass" ];
+    [ "firefox-bin" "vscode" "google-chrome" "mongodb-compass" ];
 
   programs.adb.enable = true;
   programs.slock.enable = true;
@@ -13,7 +13,7 @@
       # Tools and utilities.
       mkpasswd wget curl git xclip theme-vertex file
       unzip zip ranger keychain system-config-printer fzf
-      tldr htop hardinfo glxinfo tree
+      tldr htop hardinfo glxinfo tree ripgrep linuxPackages.nvidia_x11
 
       # Themeing, greeter.
       numix-gtk-theme numix-icon-theme blueman lxappearance
@@ -21,7 +21,7 @@
 
       # Languages and programming tools.
       #nodejs-10_x #yarn
-      rustup
+      rustup-1-22.rustup
       android-studio-3-4-0.android-studio
 
       # Editors.
@@ -29,17 +29,23 @@
 
       # Terminal and WM.
       kitty awesome rofi lightlocker
-      antibody alacritty
-      #polybar 
+      antibody alacritty 
+      polybar 
 
       # Browsers.
       firefox
-      chromium google-chrome
+      google-chrome
 
       # Others
       weechat gimp feh slack apvlv postman-7-6-0.postman libreoffice
-      gcc wine steam dbeaver skypeforlinux pavucontrol mitmproxy arandr
+      gcc wineWowPackages.stable  dbeaver pavucontrol mitmproxy arandr
       nssmdns kubectl minikube-1-2-0.minikube mongodb-compass docker-compose
+      tk alsaLib xorg.libX11 godot-3-2-3.godot
+      #skypeforlinux
+      #steam
+      llvmPackages.libclang
+      clang
+      rust-analyzer-latest.rust-analyzer
     ];
   };
 }
