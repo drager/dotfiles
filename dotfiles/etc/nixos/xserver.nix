@@ -14,7 +14,8 @@
    layout = "us, se";
    xkbOptions = "grp:alt_shift_toggle";
    
-   videoDrivers = [ "nvidiaLegacy390M" ];
+   #videoDrivers = [ "nvidiaLegacy390" ];
+
 
    #resolutions = [ { x = 1920; y = 1080; } ];
    #resolutions = [ { x = 1920; y = 1080; } { x = 1920; y = 1200; } { x = 1920; y = 1200; } ];
@@ -25,8 +26,8 @@
      locker = "${pkgs.slock}/bin/slock";
    };
 
-   displayManager.lightdm = {
-     enable = true;
+   #displayManager.lightdm = {
+    # enable = true;
      #greeters.gtk = {
      #  enable = true;
      #  indicators = [ "~spacer" "~clock" "~power" ];
@@ -41,16 +42,14 @@
      #       #font-name=Lat2-Terminus-16
      #  '';
      #};
-  };
+  #};
  
     #displayManager = {
     #  defaultSession = "none+leftwm";
     #};
 
 
-    #windowManager.leftwm = {
-    #  enable = true;
-    #};
+    windowManager.leftwm.enable = true;
 
     windowManager.awesome = {
       enable = true;
