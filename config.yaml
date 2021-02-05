@@ -14,6 +14,9 @@ dotfiles:
   d_geometry-plugins:
     dst: ~/geometry-plugins
     src: geometry-plugins
+  d_polybar:
+    dst: ~/.config/polybar
+    src: config/polybar
   f_00-keyboard.conf:
     dst: ~/00-keyboard.conf
     src: 00-keyboard.conf
@@ -161,3 +164,4 @@ profiles:
     - f_python.nix
     - f_rust.nix
     - f_custom-versions.nix
+    - d_polybar
