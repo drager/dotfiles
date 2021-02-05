@@ -1,5 +1,6 @@
 # Preferred editor for local and remote sessions
 export EDITOR="nvim"
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 export NVM_DIR="$HOME/.nvm"
 export PATH=$PATH:./node_modules/.bin
 export PATH=$PATH:$HOME/.yarn/bin
@@ -9,13 +10,15 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH="$PATH:$HOME/bin"
 export PATH=$PATH:$HOME/.cabal/bin
+export PATH="$HOME/.rbenv/bin:$PATH"
 
 # Symbols
-GEOMETRY_PROMPT_PLUGINS+=(exec_time git node)
-GEOMETRY_PROMPT_PREFIX_SPACER=""
-GEOMETRY_SYMBOL_PROMPT="𝝺"
+GEOMETRY_PROMPT=(geometry_status geometry_path)
+GEOMETRY_RPROMPT+=(geometry_exec_time geometry_node geometry_rust_version geometry_npm_package_version geometry_virtualenv geometry_docker_machine geometry_git)
+GEOMETRY_SEPARATOR=""
+GEOMETRY_STATUS_SYMBOL="𝝺"
 GEOMETRY_SYMBOL_RPROMPT="|"
-GEOMETRY_SYMBOL_EXIT_VALUE="𝝺"
+GEOMETRY_STATUS_SYMBOL_ERROR="𝝺"
 GEOMETRY_SYMBOL_ROOT="ƛ"
 
 PROMPT_GEOMETRY_COLORIZE_ROOT=true
@@ -23,11 +26,11 @@ PROMPT_GEOMETRY_COLORIZE_ROOT=true
 # Colors
 
 # Prompt symbol color when exit value is != 0
-GEOMETRY_COLOR_EXIT_VALUE="red"
+GEOMETRY_STATUS_COLOR_ERROR="red"
 # Prompt symbol color
-GEOMETRY_COLOR_PROMPT="green"
+GEOMETRY_STATUS_COLOR="green"
 # Root prompt symbol color
-GEOMETRY_COLOR_ROOT="red"
+GEOMETRY_STATUS_COLOR_ROOT="red"
 # Current directory color
 GEOMETRY_COLOR_DIR="cyan"
 

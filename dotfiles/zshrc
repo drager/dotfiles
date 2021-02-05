@@ -1,3 +1,4 @@
+
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=100000
 SAVEHIST=$HISTSIZE
@@ -5,7 +6,11 @@ SAVEHIST=$HISTSIZE
 alias vim=nvim
 alias d="kitty +kitten diff"
 alias ls='ls --color=tty'
+alias grep='rg'
 
+bindkey "\e[3~" delete-char 
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
 bindkey -e
 
 # Remove older duplicate entries from history.
@@ -18,7 +23,7 @@ setopt inc_append_history
 setopt share_history
 
 setopt auto_cd
-setopt correct_all
+#setopt correct_all
 
 # Automatically list choices on ambiguous completion.
 setopt auto_list 
@@ -55,25 +60,11 @@ zmodload -i zsh/complist
 # Load antibody plugins.
 source ~/.zsh_plugins.sh
 
-# Geometry
-source ~/geometry-plugins/npm_package_version.zsh
-source ~/geometry-plugins/rust_version.zsh
-
-SPACESHIP_PROMPT_ADD_NEWLINE=false
-SPACESHIP_CHAR_SYMBOL="λ"
-SPACESHIP_CHAR_SUFFIX=" "
-
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-eval "$(pyenv virtualenv-init -)"
-eval "$(pyenv virtualenv-init -)"
+eval "$(direnv hook zsh)"
+#eval `keychain --eval --agents ssh id_rsa`
 
-
-#{%@@ if profile == "daedalus" @@%}
-#eval $(keychain --eval --quiet id_rsa_do)
-#{%@@ endif @@%}
+eval "$(rbenv init -)"
 
