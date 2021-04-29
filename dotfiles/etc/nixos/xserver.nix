@@ -14,7 +14,7 @@
    layout = "us, se";
    xkbOptions = "grp:alt_shift_toggle";
    
-   #videoDrivers = [ "nvidiaLegacy390" ];
+   videoDrivers = [ "nvidiaLegacy173" ];
 
 
    #resolutions = [ { x = 1920; y = 1080; } ];
@@ -26,8 +26,8 @@
      locker = "${pkgs.slock}/bin/slock";
    };
 
-   #displayManager.lightdm = {
-    # enable = true;
+   displayManager.lightdm = {
+     enable = true;
      #greeters.gtk = {
      #  enable = true;
      #  indicators = [ "~spacer" "~clock" "~power" ];
@@ -42,29 +42,32 @@
      #       #font-name=Lat2-Terminus-16
      #  '';
      #};
-  #};
+  };
+
+  displayManager.defaultSession = "xfce";
+    desktopManager = {
+      xterm.enable = false;
+      xfce = {
+        enable = true;
+        noDesktop = true;
+        enableXfwm = false;
+      };
+    };
+
+   # windowManager.i3.enable = true;
  
-    #displayManager = {
-    #  defaultSession = "none+leftwm";
-    #};
-
-
-    windowManager.leftwm.enable = true;
-
     windowManager.awesome = {
       enable = true;
     };
-
-    windowManager.twm.enable = true;
 
   };
 
   fonts = {
    enableFontDir = true;
    fonts = with pkgs; [
-     terminus_font dejavu_fonts terminus_font_ttf
-     powerline-fonts roboto
-     #nerdfonts font-awesome_5
+      noto-fonts material-icons terminus font-awesome
    ];
+
+   fontconfig.allowBitmaps = true;
   };
 }

@@ -12,9 +12,13 @@ let
   };
 in with remotes;
 {
-  nixpkgs.config.packageOverrides = {
+  nixpkgs.config.packageOverrides = pkgs: rec {
     # WARNING! Don't name the remote the same as the package you're trying to
     # install, the package will get overridden
+
+    #polybar = pkgs.polybar.override {
+    #  i3Support = true;
+    #};
 
     master = builtins.trace
       "Warning: master is impure. Using this might have unexpected consequences!"

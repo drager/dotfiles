@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, options, ... }:
 
 {
   imports =
@@ -30,6 +30,9 @@
   services.printing.listenAddresses = [ "*:631" ];
   services.printing.defaultShared = true;
 
+  # Lorri
+  services.lorri.enable = true;
+
   networking.firewall.allowedUDPPorts = [ 631 ];
   networking.firewall.allowedTCPPorts = [ 631 ];
 
@@ -55,7 +58,10 @@
   #hardware.opengl.extraPackages = [ pkgs.linuxPackages.nvidia_x11.out ];
   #hardware.opengl.extraPackages32 = [ pkgs.linuxPackages.nvidia_x11.lib32 ];
 
-  hardware.opengl.driSupport32Bit = true;
+  hardware.opengl = {
+    enable = true;
+    driSupport32Bit = true;
+  };
 
   # Enable sound.
   sound.enable = true;
@@ -74,6 +80,7 @@
 
   networking.hostName = "icarus"; # Define your hostname.
   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.wireless.userControlled.enable = true;
 
   #networking.networkmanager.enable = true;
 
