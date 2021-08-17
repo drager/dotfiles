@@ -18,34 +18,24 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " (Optional) Multi-entry selection UI.
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
-"if has('nvim')
-  "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  "let g:deoplete#enable_at_startup = 1
-"else
-  "Plug 'Shougo/deoplete.nvim'
-  "Plug 'roxma/nvim-yarp'
-  "Plug 'roxma/vim-hug-neovim-rpc'
-"endif
+Plug 'junegunn/fzf.vim'
 
 " Rust Plugins
-"if executable('rustc')
-  "Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-"endif
+if executable('rustc')
+  Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+endif
 
 Plug 'morhetz/gruvbox'
 "Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdcommenter'
 Plug 'jlanzarotta/bufexplorer'
-Plug 'direnv/direnv.vim'
+"Plug 'direnv/direnv.vim'
 Plug 'sakhnik/nvim-gdb'
 Plug 'neomake/neomake', { 'for': ['rust', 'haskell', 'typescript'] }
-"Plug 'autozimu/LanguageClient-neovim', {
-    "\ 'branch': 'next',
-    "\ 'do': 'bash install.sh',
-    "\ }
+Plug 'pinecoders/vim-pine-script'
+Plug 'cespare/vim-toml'
+
 
 call plug#end()
 
@@ -108,15 +98,17 @@ let g:prettier#autoformat = 1
 let g:prettier#config#single_quote = 'true'
 let g:prettier#config#bracket_spacing = 'false'
 let g:prettier#config#semi = 'false'
-
-"let g:ale_fix_on_save = 1
-"let g:ale_fixers = {
-"\   'javascript': ['prettier', 'eslint'],
-"\   'typescript': ['prettier', 'tslint'],
-"\}
-
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx PrettierAsync
 
+" FZF
+nnoremap <silent> <C-f> :GFiles<CR>
+nnoremap <silent> <Leader>f :Rg<CR>
+nnoremap <silent> <Leader>d :GFiles?<CR>
+nnoremap <silent> <Leader>b :Buffers<CR>
+nnoremap <silent> <Leader>c :Commits<CR>
+
+
+" COC
 
 " Some servers have issues with backup files, see #649.
 set nobackup
@@ -232,16 +224,16 @@ omap ac <Plug>(coc-classobj-a)
 
 " Remap <C-f> and <C-b> for scroll float windows/popups.
 " Note coc#float#scroll works on neovim >= 0.4.3 or vim >= 8.2.0750
-nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+"nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
 nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-inoremap <nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+"inoremap <nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
 inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
 
 " NeoVim-only mapping for visual mode scroll
 " Useful on signatureHelp after jump placeholder of snippet expansion
 if has('nvim')
-  vnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#nvim_scroll(1, 1) : "\<C-f>"
-  vnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#nvim_scroll(0, 1) : "\<C-b>"
+  "vnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#nvim_scroll(1, 1) : "\<C-f>"
+  "vnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#nvim_scroll(0, 1) : "\<C-b>"
 endif
 
 " Use CTRL-S for selections ranges.
