@@ -173,3 +173,4 @@ profiles:
     - d_polybar
     - f_rc.lua
     - d_leftwm
+    - f_exports
