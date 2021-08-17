@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+monitor="$(polybar -m | grep primary | sed s/:.*// | tac)"
+
+echo "hej"
+echo $monitor
+
+leftwm-state -q -n -t sizes.liquid | sed -r '/^\s*$/d' | while read -r width x y
+do 
+  barname="mainbar$index"
+  echo $barname
+  #monitor=$monitor offsetx=$x width=$width polybar top -c $POLYBAR_PATH/config.ini &> /dev/null &
+  echo $monitor
+  let index=index+1
+done
+

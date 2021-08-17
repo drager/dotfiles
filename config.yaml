@@ -14,6 +14,9 @@ dotfiles:
   d_geometry-plugins:
     dst: ~/geometry-plugins
     src: geometry-plugins
+  d_leftwm:
+    dst: ~/.config/leftwm
+    src: config/leftwm
   d_polybar:
     dst: ~/.config/polybar
     src: config/polybar
@@ -83,6 +86,9 @@ dotfiles:
   f_python.nix:
     dst: ~/environments/python.nix
     src: environments/python.nix
+  f_rc.lua:
+    dst: ~/.config/awesome/rc.lua
+    src: config/awesome/rc.lua
   f_rust.nix:
     dst: ~/environments/rust.nix
     src: environments/rust.nix
@@ -165,3 +171,5 @@ profiles:
     - f_rust.nix
     - f_custom-versions.nix
     - d_polybar
+    - f_rc.lua
+    - d_leftwm
