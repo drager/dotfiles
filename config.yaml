@@ -101,6 +101,9 @@ dotfiles:
   f_terminal.patch:
     dst: ~/aur/packages/dwm/src/terminal.patch
     src: aur/packages/dwm/src/terminal.patch
+  f_theme.lua:
+    dst: ~/.config/awesome/theme.lua
+    src: config/awesome/theme.lua
   f_theme.patch:
     dst: ~/aur/packages/dwm/src/theme.patch
     src: aur/packages/dwm/src/theme.patch
@@ -110,6 +113,9 @@ dotfiles:
   f_volume.sh:
     dst: ~/bin/volume.sh
     src: bin/volume.sh
+  f_wall.png:
+    dst: ~/.config/awesome/wall.png
+    src: config/awesome/wall.png
   f_wifi-check.sh:
     dst: ~/bin/wifi-check.sh
     src: bin/wifi-check.sh
@@ -174,3 +180,5 @@ profiles:
     - f_rc.lua
     - d_leftwm
     - f_exports
+    - f_wall.png
+    - f_theme.lua
