@@ -35,6 +35,9 @@ dotfiles:
   f_brightness.sh:
     dst: ~/bin/brightness.sh
     src: bin/brightness.sh
+  f_calendar.sh:
+    dst: ~/bin/calendar.sh
+    src: bin/calendar.sh
   f_config:
     dst: ~/.config/termite/config
     src: config/termite/config
@@ -182,3 +185,5 @@ profiles:
     - f_exports
     - f_wall.png
     - f_theme.lua
+    - f_calendar.sh
+    - f_volume.sh

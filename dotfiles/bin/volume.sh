@@ -21,5 +21,6 @@ case "$1" in
     -dec|-d) unmute ; amixer set Master "$2-" ;;
     -get|-g) get ;;
     -mute|-m) mute ;;
+    -toggle|-t) amixer -q set Master toggle ;;
     --help|-h) usage
 esac
