@@ -1,5 +1,6 @@
 { config, lib, pkgs, stdenv, ... }:
 
+
 {
   nixpkgs.config.allowUnfreePredicate = pkg:
     pkgs.lib.elem (builtins.parseDrvName pkg.name).name
@@ -7,6 +8,7 @@
 
   programs.adb.enable = true;
   programs.slock.enable = true;
+
 
   nixpkgs.config.packageOverrides = pkgs: rec {
     my-firefox-dev = pkgs.stdenv.mkDerivation {
@@ -33,10 +35,12 @@
     rofi = pkgs.rofi.override { plugins = [ pkgs.rofi-calc ]; };
   };
 
+
+
   environment = with pkgs; {
     systemPackages = [
       # Tools and utilities.
-      mkpasswd wget curl git xclip theme-vertex file
+      mkpasswd wget curl git xclip theme-vertex file wpa_supplicant_gui
       unzip zip ranger keychain system-config-printer fzf killall xorg.xbacklight
       tldr htop hardinfo glxinfo tree ripgrep conky yad xdotool dnsutils
 
@@ -45,16 +49,16 @@
       #gtk #gnome.gnomeicontheme
 
       # Languages and programming tools.
-      #nodejs-10_x #yarn
+      nodejs-14_x yarn
       rustup-1-22.rustup
-      android-studio-3-4-0.android-studio
+      android-studio
 
       # Editors.
       neovim vim vscode
 
       # Terminal and WM.
       kitty awesome lightlocker
-      rofi
+      rofi tmux
       antibody alacritty 
       polybar xmobar lemonbar
 
