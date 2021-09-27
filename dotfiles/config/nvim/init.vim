@@ -1,18 +1,20 @@
+set nocompatible
+
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'scrooloose/nerdtree'
 "Plug 'w0rp/ale'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+"Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 "Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
-Plug 'plasticboy/vim-markdown'
-Plug 'LnL7/vim-nix'
-Plug 'reasonml-editor/vim-reason-plus'
-Plug 'idris-hackers/idris-vim'
-Plug 'jparise/vim-graphql'
+"Plug 'plasticboy/vim-markdown'
+"Plug 'LnL7/vim-nix'
+"Plug 'reasonml-editor/vim-reason-plus'
+"Plug 'idris-hackers/idris-vim'
+"Plug 'jparise/vim-graphql'
 "Plug 'peitalin/vim-jsx-typescript'
 "Plug 'mxw/vim-jsx'
 "Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-Plug 'HerringtonDarkholme/yats.vim'
+"Plug 'HerringtonDarkholme/yats.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'mhartington/nvim-typescript'
 
@@ -21,12 +23,12 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " Rust Plugins
-if executable('rustc')
-  Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-endif
+"if executable('rustc')
+  "Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+"endif
 
 Plug 'morhetz/gruvbox'
-"Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdcommenter'
 Plug 'jlanzarotta/bufexplorer'
@@ -35,16 +37,38 @@ Plug 'sakhnik/nvim-gdb'
 Plug 'neomake/neomake', { 'for': ['rust', 'haskell', 'typescript'] }
 Plug 'pinecoders/vim-pine-script'
 Plug 'cespare/vim-toml'
+Plug 'srcery-colors/srcery-vim'
+Plug 'sainnhe/everforest'
+Plug 'sheerun/vim-polyglot'
+Plug 'itchyny/lightline.vim'
 
 
 call plug#end()
+
+if has('termguicolors')
+  set termguicolors
+endif
+
+let g:lightline = {
+      \ 'colorscheme': 'srcery',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
+
+"let g:everforest_background = 'soft'
 
 " Appearance
 syntax on
 filetype on
 filetype plugin indent on
 set background=dark
-colorscheme gruvbox
+colorscheme srcery
+set noshowmode
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
@@ -61,29 +85,7 @@ set number
 
 set clipboard+=unnamedplus
 
-"let g:jsx_ext_required = 2
-
 let g:rustfmt_autosave = 1
-
-" LanguageClient
-"let g:LanguageClient_autoStart = 1
-"let g:LanguageClient_serverCommands = {
-    "\ 'rust': ['rls'],
-    "\ 'javascript': ['node', 'javascript-typescript-stdio'],
-    "\ 'javascript.jsx': ['node', 'javascript-typescript-stdio'],
-    "\ 'typescript': ['node', 'javascript-typescript-stdio'],
-    "\ 'typescript.tsx': ['node', 'javascript-typescript-stdio'],
-    "\ }
-
-
-"nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-"nnoremap <Leader>r :call LanguageClient#textDocument_rename()<CR>
-"nnoremap <Leader>d :call LanguageClient#textDocument_definition()<CR>
-"nnoremap <Leader>f :call LanguageClient#textDocument_formatting()<CR>
-"nnoremap <Leader>H :call LanguageClient#textDocument_hover()<CR>
-"nnoremap <C-L> :buffers<CR>:buffer<Space>
-"nnoremap <Leader>' :call LanguageClient#textDocument_codeAction()<CR>
-"autocmd BufWritePre *.re :call LanguageClient#textDocument_formatting()
 
 " NERDTree
 let NERDTreeShowHidden = 1
@@ -93,22 +95,25 @@ nmap <silent> <C-t> :NERDTreeToggle<CR>
 
 
 " Prettier
-let g:prettier#exec_cmd_async = 1
-let g:prettier#autoformat = 1
-let g:prettier#config#single_quote = 'true'
-let g:prettier#config#bracket_spacing = 'false'
-let g:prettier#config#semi = 'false'
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx PrettierAsync
+"let g:prettier#exec_cmd_async = 1
+"let g:prettier#autoformat = 1
+"let g:prettier#config#single_quote = 'true'
+"let g:prettier#config#bracket_spacing = 'false'
+"let g:prettier#config#semi = 'false'
 
 " FZF
 nnoremap <silent> <C-f> :GFiles<CR>
 nnoremap <silent> <Leader>f :Rg<CR>
-nnoremap <silent> <Leader>d :GFiles?<CR>
-nnoremap <silent> <Leader>b :Buffers<CR>
-nnoremap <silent> <Leader>c :Commits<CR>
+nnoremap <silent> <Leader>df :GFiles?<CR>
+nnoremap <silent> <Leader>bf :Buffers<CR>
+nnoremap <silent> <Leader>ct :Commits<CR>
+nnoremap <silent> <Leader>nf :NERDTreeFind<CR>
 
 
 " COC
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+autocmd CursorHold * silent call CocActionAsync('highlight')
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx :Prettier
 
 " Some servers have issues with backup files, see #649.
 set nobackup
@@ -190,8 +195,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+"xmap <leader>f  <Plug>(coc-format-selected)
+"nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!

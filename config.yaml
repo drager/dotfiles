@@ -187,3 +187,4 @@ profiles:
     - f_theme.lua
     - f_calendar.sh
     - f_volume.sh
+    - f_init.vim
