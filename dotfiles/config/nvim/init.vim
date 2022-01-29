@@ -102,7 +102,7 @@ nmap <silent> <C-t> :NERDTreeToggle<CR>
 "let g:prettier#config#semi = 'false'
 
 " FZF
-nnoremap <silent> <C-f> :GFiles<CR>
+nnoremap <silent> <C-f> :GFiles -o -c --exclude-standard<CR>
 nnoremap <silent> <Leader>f :Rg<CR>
 nnoremap <silent> <Leader>df :GFiles?<CR>
 nnoremap <silent> <Leader>bf :Buffers<CR>
